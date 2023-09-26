@@ -81,7 +81,9 @@ for epoch in range(param.epoch):
         print(f"loss: {total_loss[-1]}")
         print()
 
-
+plt.plot(acc_test)
+plt.plot(acc_test)
+plt.plot(total_loss)
 
 
 
