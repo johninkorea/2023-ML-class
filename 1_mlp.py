@@ -54,4 +54,14 @@ loss=nn.CrossEntropyLoss()
 opt=opt.Adam(model.parameters(), lr=param.lr)
 
 
+total_loss=[]
+acc_train=[]
+acc_ttest=[]
+
+
+
+
+
+
+
 
