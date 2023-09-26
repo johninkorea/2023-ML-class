@@ -73,6 +73,14 @@ for epoch in range(param.epoch):
         acc = (torch.argmax(y_pred, dim=1) == y_train).type(torch.FloatTensor)
         acc_train.append(acc.mean().data.item())
 
+        y_test_pred = model(x_test)
+        acc = (torch.argmax(y_test_pred, dim=1) == y_test).type(torch.FloatTensor)
+        acc_test.append(acc.mean().data.item())
+    
+    if epoch % 10==0:
+        print(f"loss: {total_loss[-1]}")
+        print()
+
 
 
 
