@@ -11,7 +11,7 @@ from sklearn.model_selection import train_test_split
 
 parse = argparse.ArgumentParser(description="asd")
 parse.add_argument("--epoch", default=100, type=int)
-parse.add_argument("--lr", default=.001, type=float)
+parse.add_argument("--lr", default=.01, type=float)
 parse.add_argument("--tr", default=.6, type=float)
 
 param = parse.parse_args(args=[])
