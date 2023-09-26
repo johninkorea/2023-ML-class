@@ -40,12 +40,12 @@ class Net(nn.Module):
 
         self.fc1 = nn.Linear(in_ch, num_node[0])
         self.fc2 = nn.Linear(num_node[0], num_node[1])
-        self.fc3 = nn.Linear(num_node[0], out_ch)
+        self.fc3 = nn.Linear(num_node[1], out_ch)
 
     def forward(self, x):
         x=self.relu(self.fc1(x))
         x=self.relu(self.fc2(x))
-        x=self.sorftmax(self.sorftmax(x))
+        x=self.sorftmax(self.fc3(x))
         return x
 
 
