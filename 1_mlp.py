@@ -49,7 +49,9 @@ class Net(nn.Module):
         return x
 
 
-
+model=Net(in_ch=4, out_ch=3)
+loss=nn.CrossEntropyLoss()
+opt=adam(model.parameters, lr=param.lr)
 
 
 
