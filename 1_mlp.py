@@ -3,6 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import torch
 from torch.optim import adam
+import torch.nn as nn
+
 from sklearn import datasets
 import sklearn
 
@@ -19,7 +21,7 @@ iris = datasets.load_iris()
 x=iris['data']
 y=iris['target']
 
-x_train, x_text, y_train, y_text = sklearn.train_test_split(x,y,test_size=1-param.tr)
+x_train, x_text, y_train, y_text = sklearn.model_selection.train_test_split(x,y,test_size=1-param.tr)
 
 
 
