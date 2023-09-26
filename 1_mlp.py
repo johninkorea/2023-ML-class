@@ -64,7 +64,7 @@ for epoch in range(param.epoch):
 
     y_pred = model(x_train)
     losses = loss(y_pred, y_train)
-    losses.backwward()
+    losses.backward()
     optmizer.step()
 
     total_loss.append(losses.data.itrm())
