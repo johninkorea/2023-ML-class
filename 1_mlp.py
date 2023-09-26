@@ -1,13 +1,13 @@
 import argparse
 import numpy as np
 import matplotlib.pyplot as plt
+
 import torch
 import torch.optim as opt
 import torch.nn as nn
 
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
-import sklearn
 
 parse = argparse.ArgumentParser(description="asd")
 parse.add_argument("--epoch", default=100, type=int)
@@ -51,13 +51,27 @@ class Net(nn.Module):
 
 model=Net(in_ch=4, out_ch=3)
 loss=nn.CrossEntropyLoss()
-opt=opt.Adam(model.parameters(), lr=param.lr)
+optmizer=opt.Adam(model.parameters(), lr=param.lr)
 
 
 total_loss=[]
 acc_train=[]
-acc_ttest=[]
+acc_test=[]
 
+model.train() #강속 받은 함수
+for epoch in range(param.epoch):
+    opt.zero_grad()
+
+    y_pred = model(x_train)
+    losses = loss(y_pred, y_train)
+    losses.backwward()
+    optmizer.step()
+
+    total_loss.append(losses.data.itrm())
+
+    with torch.no_grad:
+        acc = (torch.argmax(y_pred, dim=1) == y_train).type(torch.FloatTensor)
+        acc_train.append(acc.mean().data.item())
 
 
 
