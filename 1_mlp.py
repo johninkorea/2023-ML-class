@@ -69,7 +69,7 @@ for epoch in range(param.epoch):
 
     total_loss.append(losses.data.item())
 
-    with torch.no_grad:
+    with torch.no_grad():
         acc = (torch.argmax(y_pred, dim=1) == y_train).type(torch.FloatTensor)
         acc_train.append(acc.mean().data.item())
 
