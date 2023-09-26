@@ -11,6 +11,7 @@ parse.add_argument("--epoch", default=100, type=int)
 parse.add_argument("--lr", default=.001, type=float)
 parse.add_argument("--tr", default=.6, type=float)
 
+param = parse.parse_args(args=[])
 
 iris = datasets.load_iris()
 # print(iris)
@@ -18,7 +19,7 @@ iris = datasets.load_iris()
 x=iris['data']
 y=iris['target']
 
-x_train, x_text, y_train, y_text = sklearn.train_text_split(x,y,test_size=1-parse.tr)
+x_train, x_text, y_train, y_text = sklearn.train_test_split(x,y,test_size=1-param.tr)
 
 
 
