@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import torch
 from torch.optim import adam
 from sklearn import datasets
+import sklearn
 
 parse = argparse.ArgumentParser(description="asd")
 parse.add_argument("--epoch", default=100, type=int)
@@ -17,7 +18,7 @@ iris = datasets.load_iris()
 x=iris['data']
 y=iris['target']
 
-x_train, x_text, y_train, y_text = train_text_split(x,y,test_size=1-parse.tr)
+x_train, x_text, y_train, y_text = sklearn.train_text_split(x,y,test_size=1-parse.tr)
 
 
 
