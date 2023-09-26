@@ -60,7 +60,7 @@ acc_test=[]
 
 model.train() #강속 받은 함수
 for epoch in range(param.epoch):
-    opt.zero_grad()
+    optmizer.zero_grad()
 
     y_pred = model(x_train)
     losses = loss(y_pred, y_train)
